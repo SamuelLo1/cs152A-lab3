@@ -1,3 +1,4 @@
 # Simulation Files
 *_sim
 *.vcd
+*_tb
