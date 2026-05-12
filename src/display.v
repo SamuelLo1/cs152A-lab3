@@ -13,7 +13,7 @@ module display (
 );
 
     // Multiplexing counter - divides system clock to cycle through digits
-    reg [19:0] mux_counter;
+    reg [19:0] mux_counter = 0;
     wire [1:0] digit_select;
     
     always @ (posedge clk_sys) begin
@@ -21,7 +21,7 @@ module display (
     end
     
     // Select which digit to display (cycles every ~5ms at 100MHz)
-    assign digit_select = mux_counter[19:18];
+    assign digit_select = mux_counter[19:18]; // change to [19:18]/[3:2] when running hardware/main_tb.v
     
     // Blink state controlled by blink clock
     reg blink_state;
